@@ -14,6 +14,7 @@ document.querySelector(".buttons").addEventListener("click", (e) => {
     let pTextNode = document.createTextNode(e.target.textContent);
     p.appendChild(pTextNode);
     list.push(p.textContent);
+    console.log(list);
 
     if (e.target.classList.contains("operator")) {
       listResult.push(
@@ -36,7 +37,8 @@ document.querySelector(".buttons").addEventListener("click", (e) => {
         screen.appendChild(p);
         let pTextNode = document.createTextNode(result);
         p.appendChild(pTextNode);
-        listResult = [result];
+        listResult = [];
+        list = [result];
         console.log(listResult);
       }
     }
@@ -53,10 +55,18 @@ document.querySelector(".buttons").addEventListener("click", (e) => {
     let pTextNode = document.createTextNode("0");
     p.appendChild(pTextNode);
     listResult = [];
+    list = [];
   }
 });
 
 function calculate() {
+  for (i of listResult) {
+    if (i == "%") {
+      result = Number(listResult[listResult.indexOf("%") - 1]) / 100;
+      listResult.splice(listResult.indexOf("%") - 1, 3, result);
+      console.log(listResult);
+    }
+  }
   for (i of listResult) {
     if (i == "x") {
       result =
@@ -66,6 +76,7 @@ function calculate() {
       console.log(listResult);
     }
   }
+
   for (i of listResult) {
     if (i == ":") {
       result =
@@ -94,3 +105,5 @@ function calculate() {
     }
   }
 }
+
+console.log();
