@@ -12,10 +12,10 @@ body {
 }
 .container {
   justify-content: center;
-  width: 20%;
-  min-width: 18rem;
+  width: 25%;
+  min-width: 20rem;
   min-height: 35rem;
-  height: 70%;
+  height: 85%;
   background-color: black;
   border: 1px solid black;
   border-radius: 5%;
